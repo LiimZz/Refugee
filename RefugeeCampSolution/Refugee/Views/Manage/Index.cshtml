@@ -1,0 +1,35 @@
+﻿@model Refugee.Models.IndexViewModel
+
+
+<div class="become">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                <h2>
+                    @{
+                        ViewBag.Title = "Account settings";
+                    } <span>@ViewBag.Title</span>
+                </h2>
+
+                <p class="text-success">@ViewBag.StatusMessage</p>
+                <div>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dd>
+                                @if (Model.HasPassword)
+                                {
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("ChangePassword", "Manage")'">Change your password </button>
+                                    @*@Html.ActionLink("Change your password", "ChangePassword")*@
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Create", "SetPassword")
+                                }
+                            </dd>
+                        </dl>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+

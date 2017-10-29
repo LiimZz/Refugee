@@ -1,0 +1,114 @@
+﻿@model Refugee.Models.RegisterViewModel
+
+<!-- login start here -->
+<div class="become">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                <h2>
+                    @{
+                        ViewBag.Title = "Become Volunteer";
+                    } <span>@ViewBag.Title</span>
+                </h2>
+
+                @using (Html.BeginForm("Register", "Volunteer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.Email)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.UserName)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.FirstName)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.LastName)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.Age)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Age, "{0:yyyy-MM-dd}", new { @class = "text-danger", @placeholder = "yyyy-MM-dd" })
+                            @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.Nationality)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Nationality, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Nationality, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.Password)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="buttons">
+                            <input type="submit" class="btn btn-primary" value="Count me" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- login end here -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

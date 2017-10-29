@@ -1,0 +1,87 @@
+﻿@using Refugee.Domain.Entities
+@model Refugee.Domain.Entities.PostClaims
+
+<!-- login start here -->
+<div class="become">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                <h2>
+                    @{
+                        ViewBag.Title = "Report This Post";
+                    } <span>@ViewBag.Title</span>
+                </h2>
+                @using (Html.BeginForm("Create", "Claim", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Objet, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("Objet",
+                    new SelectList(Enum.GetValues(typeof(ClaimObject))),
+                    new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Objet, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="buttons">
+                                <input type="submit" value="Create" onclick="notifyMe()" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/")/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/")js/notify.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('document').ready(function(){
+        $.notify("Claim Added","success");
+    })
+</script>
+<script>
+function notifyMe() {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+
+            // Let's check whether notification permissions have already been granted
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification("A new Claim was created");
+        }
+
+            // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== "denied") {
+            Notification.requestPermission(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification("Hi there!");
+                }
+            });
+        }
+
+    }
+
+</script>
+

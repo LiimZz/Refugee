@@ -1,0 +1,43 @@
+using Refugee.Data;
+using Refugee.Data.Infrastructure;
+using Refugee.Domain.Entities;
+using Refugee.Pattern;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Refugee.Services
+{
+    public class PostService : Services<Post>
+    {
+        private static IDatabaseFactory dbf = new DatabaseFactory();
+        private static IUnitOfWork ut = new UnitOfWork(dbf);
+
+        RefugeeDbContext ct = new RefugeeDbContext();
+        public PostService() : base(ut) { }
+
+        public void updatePub(Post pub)
+        {
+
+            this.Add(pub);
+            this.Commit();
+        }
+
+        public void removeService(int idPub)
+        {
+            Post pub = this.GetById(idPub);
+
+            this.Delete(pub);
+        }
+
+        public virtual Post getById(long id)
+        {
+            return ut.getRepository<Post>().GetById(id);
+        }
+        public IEnumerable<Post> GetAllS()
+        {
+            return ct.Post.ToList();       }
+    }
+}

@@ -1,0 +1,30 @@
+﻿@*@model IEnumerable<Refugee.Domain.Entities.User>*@
+
+@model IEnumerable<Refugee.Domain.Entities.User>
+
+<div class="panel panel-danger">
+    <table class="table table-striped m-top-md" id="dataTable">
+        <thead>
+            <tr class="bg-theme">
+                <th>Username</th>
+                <th>Email</th>
+                <th>Settings</th>
+                @*<th class="hidden-xs">Quantity</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

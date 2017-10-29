@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="list-inline call pull-right">
+        <li>
+            @{
+                if (this.User.IsInRole("SPAdmin") || !this.User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink(" Hello " + User.Identity.GetUserName() + " ☺", "ChangePassword", "Admin", routeValues: null, htmlAttributes: new { title = "Admin" })
+                }
+                else
+                {
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                }
+            }
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-lock fa-lg"></i> Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="list-inline call pull-right">
+        <li>
+            <div class="detail">
+                <p>
+                    @Html.ActionLink("Sign in", "Login", "Account")
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="detail">
+                <p>
+                    @Html.ActionLink("Sign up", "Register", "Account")
+                </p>
+            </div>
+        </li>
+    </ul>
+}

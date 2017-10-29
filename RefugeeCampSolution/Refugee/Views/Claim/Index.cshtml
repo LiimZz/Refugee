@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Refugee.Domain.Entities.PostClaims>
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@if (TempData.ContainsKey("created"))
+{
+    <div class="alert alert-success">@TempData["created"] Created Succefuly</div>
+}
+
+<div class="panel panel-danger">
+    <table class="table table-striped m-top-md" id="dataTable">
+        <thead>
+            <tr class="bg-theme">
+                <th>Data Claim</th>
+                <th>Object</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>#Post</th>
+                <th>#Member</th>
+                <th>Settings</th>
+                @*<th class="hidden-xs">Quantity</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.DateClaim
+                    </td>
+                    <td>
+                        @item.Objet
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.PostID
+                    </td>
+                    <td>
+                        @item.MemberID
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="@Url.Action("Edit", "Claim", new { idp = item.PostID, idu = item.MemberID })"><i class="fa fa-edit fa-lg"></i>Edit</a>
+                        @*<a class="btn btn-info" href="@Url.Action("Details", "Claim")"><i class="fa fa-tasks fa-lg"></i>Details</a>*@
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Claim", new { idp = item.PostID, idu = item.MemberID })"><i class="fa fa-trash fa-lg"></i>Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("ExportPdf", "Claim")">Download PDF</a>
+</div>

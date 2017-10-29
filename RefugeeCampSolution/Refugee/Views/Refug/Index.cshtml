@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Refugee.Domain.Entities.Refug>
+
+<div class="panel panel-danger">
+        <table class="table table-striped m-top-md" id="dataTable">
+                <thead>
+                        <tr class="bg-theme">
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Nationality</th>
+                            <th>Date Of Birth</th>
+                            <th>Civil Status</th>
+                            <th>#Tent</th>
+                            <th>Settings</th>
+                            @*<th class="hidden-xs">Quantity</th>*@
+                        </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.FirstName
+                            </td>
+                            <td>
+                                @item.MiddleName
+                            </td>
+                            <td>
+                                @item.LastName
+                            </td>
+                            <td>
+                                @item.Nationality
+                            </td>
+                            <td>
+                                @item.Age.Day/@item.Age.Month/@item.Age.Year
+                            </td>
+                            <td>
+                                @item.Staus
+                            </td>
+                            <td>
+                                @item.TentID
+                            </td>
+                            <td>
+                                <a class="btn btn-success" href="@Url.Action("Edit", "Refug", new { id = item.RefugID })"><i class="fa fa-edit fa-lg"></i>Edit</a>
+                                <a class="btn btn-danger" href="@Url.Action("Delete", "Refug", new { id = item.RefugID })"><i class="fa fa-trash fa-lg"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+        </table>
+    </div>
+<a class="btn btn-success" href="@Url.Action("Create", "Refug")"><i class="fa fa-plus-circle fa-lg"></i>Create</a>
+

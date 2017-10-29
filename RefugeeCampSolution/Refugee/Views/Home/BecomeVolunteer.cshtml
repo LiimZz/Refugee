@@ -1,0 +1,131 @@
+﻿@model Refugee.Domain.Entities.Volunteer
+
+    <!-- bread-crumb start here -->
+    <div class="bread-crumb">
+        <img src="@Url.Content("~/Assets/images/banner-top.jpg")" class="img-responsive" alt="banner-top" title="banner-top">
+        <div class="container">
+            <div class="matter">
+                <h2>become a volunteer</h2>
+            </div>
+        </div>
+    </div>
+    <!-- bread-crumb end here -->
+
+    <!-- become start here -->
+    <div class="become">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-xs-12">
+                    <h2>
+                        @{
+                            ViewBag.Title = "Become a volunteer";
+                        } <span>@ViewBag.Title</span>
+                    </h2>
+
+                    @*@using (Html.BeginForm("Create", "Volunteer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <hr />
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.Email)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.UserName)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.Age)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Age, "{0:yyyy-MM-dd}", new { @class = "text-danger", @placeholder = "yyyy-MM-dd" })
+                                @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.Password)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="buttons">
+                                <input type="submit" class="btn btn-primary" value="sign up" />
+                            </div>
+                        </div>
+                    }*@
+
+
+                    <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="name" value="" id="input-name" class="form-control" placeholder="Full Name" type="text">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="lastname" value="" id="input-lastname" class="form-control" placeholder="Last Name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="email" value="" id="input-email" class="form-control" placeholder="Email" type="text">
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="phone" value="" id="input-phone" class="form-control" placeholder="Phone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="code" value="" id="input-code" class="form-control" placeholder="Zip / Code" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea name="say" id="input-say" class="form-control" placeholder="Say something"></textarea>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <input class="btn btn-primary" value=" Go
+                                   Count Me" type="submit">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <img src="images/thanks.jpg" class="img-responsive" alt="image" title="image" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- become end here -->
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

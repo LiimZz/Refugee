@@ -1,0 +1,60 @@
+﻿<!-- bread-crumb start here -->
+<div class="bread-crumb">
+    <img src="@Url.Content("~/Assets/images/banner-top.jpg")" class="img-responsive" alt="banner-top" title="banner-top">
+    <div class="container">
+        <div class="matter">
+            <h2>Contact us</h2>
+            <ul class="list-inline">
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- bread-crumb end here -->
+
+<!-- contactus start here -->
+<div class="contactus">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="map">
+                    @Html.Partial("Map")
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-12">
+                <br>
+                <br>
+                <hr>
+                <h6>Happy to <span>Hear</span> from you</h6>
+                @*<form method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="name" value="" id="input-name" class="form-control" placeholder="Full Name" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="lastname" value="" id="input-lastname" class="form-control" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="email" value="" id="input-email" class="form-control" placeholder="Email" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="phone" value="" id="input-phone" class="form-control" placeholder="Phone" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <textarea name="enquiry" id="input-enquiry" class="form-control" placeholder="Say something"></textarea>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input class="btn btn-primary" type="submit" value="Send now" />
+                    </div>
+                </form>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- contactus end here -->

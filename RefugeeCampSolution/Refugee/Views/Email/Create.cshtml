@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@if (ViewBag.Error != null)
+{
+    <h2>@ViewBag.Error</h2>
+}
+
+@using (Html.BeginForm("Create", "Email", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <span class="form-control-static">Reciever email:</span>
+    <input class="form-control" type="text" name="recieverEmail" />
+    <span class="form-control-static">Subject:</span>
+    <input class="form-control" type="text" name="subject" />
+    <span class="form-control-static">Message:</span>
+    <input class="form-control" type="text" name="message" />
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Send email</button>
+}

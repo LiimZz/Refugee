@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    @Styles.Render("~/Assets/Admin/bootstrap/css/bootstrap.min.css")
+
+    <!-- Font Awesome -->
+    @Styles.Render("~/Assets/Admin/css/font-awesome.min.css")
+
+    <!-- Pace -->
+    @Styles.Render("~/Assets/Admin/css/pace.css")
+
+    <!-- Color box -->
+    @Styles.Render("~/Assets/Admin/css/colorbox/colorbox.css")
+
+    <!-- Morris -->
+    @Styles.Render("~/Assets/Admin/css/morris.css")
+
+    <!-- Jaiswal -->
+    @Styles.Render("~/Assets/Admin/css/app.min.css")
+    @Styles.Render("~/Assets/Admin/css/app-skin.css")
+
+</head>
+<body class="overflow-hidden">
+    <!-- Overlay Div -->
+    <div id="overlay" class="transparent"></div>
+
+    <div id="wrapper" class="preload">
+        <div id="top-nav" class="fixed default">
+            <a href="#" class="brand">
+                <span>Refugee</span>
+                <span class="text-toggle"> Admin</span>
+            </a><!-- /brand -->
+            <button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle pull-left hide-menu" id="menuToggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav-notification clearfix">
+                <li class="profile dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <strong>Admin</strong>
+                        <span><i class="fa fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="clearfix" href="@Url.Action("Index")">
+                                <img src="@Url.Content("~/Assets/Admin/img/me.jpg")" alt="User Avatar">
+                                <div class="detail">
+                                    <strong>Admin</strong>
+                                    <p class="grey">SPAdmin@esprit-tn.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        @Html.Partial("_AfterLoginPartial")
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /top-nav-->
+
+        <aside class="default">
+            <div class="sidebar-inner scrollable-sidebar">
+                <div class="size-toggle">
+                    <a class="btn btn-sm" id="sizeToggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                </div><!-- /size-toggle -->
+                <div class="user-block clearfix">
+                    <img src="@Url.Content("~/Assets/Admin/img/me.jpg")" alt="User Avatar">
+                    <div class="detail">
+                        <strong>Admin</strong>
+                    </div>
+                </div><!-- /user-block -->
+                <div class="main-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="@Url.Action("Index")">
+                                <span class="menu-icon">
+                                    <i class="fa fa-desktop fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Dashboard
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Volunteer")">
+                                <span class="menu-icon">
+                                    <i class="fa fa-user fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Volunteers
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Member")">
+                                <span class="menu-icon">
+                                    <i class="fa fa-user fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Members
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Refug")">
+                                <span class="menu-icon">
+                                    <i class="fa fa-group fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Refugees
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+
+                        @*<li class="openable open">
+                            <a href="#">
+                                <span class="menu-icon">
+                                    <i class="fa fa-file-text fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Setting
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="login.html"><span class="submenu-label">Sign in</span></a></li>
+                                <li><a href="register.html"><span class="submenu-label">Sign up</span></a></li>
+                                <li><a href="profile.html"><span class="submenu-label">Profile</span></a></li>
+                                <li><a href="blog.html"><span class="submenu-label">Blog</span></a></li>
+                                <li><a href="single_post.html"><span class="submenu-label">Single Post</span></a></li>
+                                <li><a href="chat.html"><span class="submenu-label">Chat Room</span></a></li>
+                                <li><a href="movie.html"><span class="submenu-label">Movie Gallery</span></a></li>
+                                <li><a href="contact.html"><span class="submenu-label">Contact</span></a></li>
+                                <li><a href="error404.html"><span class="submenu-label">Error404</span></a></li>
+                                <li><a href="error500.html"><span class="submenu-label">Error500</span></a></li>
+                            </ul>
+                        </li>*@
+                        <li>
+                            <a href="gallery.html">
+                                <span class="menu-icon">
+                                    <i class="fa fa-picture-o fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Gallery
+                                </span>
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="inbox.html">
+                                <span class="menu-icon">
+                                    <i class="fa fa-envelope fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    Inbox
+                                </span>
+                                @*<span class="badge badge-danger bounceIn">4</span>*@
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /main-menu -->
+            </div><!-- /sidebar-inner -->
+            <div class="panel panel-default">
+                <div class="panel-body" id="trafficWidget">
+                    <div id="placeholder" class="graph" style="height:250px"></div>
+                </div>
+                <div class="loading-overlay">
+                    <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+                </div>
+            </div><!-- /panel -->
+            <div class="panel bg-info fadeInDown">
+                <div id="lineChart" style="height: 150px;"></div>
+            </div><!-- /panel -->
+            <div class="panel bg-success fadeInDown">
+                <div id="barChart" style="height: 150px;"></div>
+            </div><!-- /panel -->
+            <div class="panel panel-default">
+                <div id="donutChart" style="height: 250px;"></div>
+            </div><!-- /panel -->
+        </aside>
+        <div id="main-container">
+            <div id="breadcrumb">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="index-2.html"> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ul>
+            </div><!-- /breadcrumb-->
+            <div class="main-header clearfix">
+                <div class="page-title">
+                    <h3 class="no-margin">Dashboard</h3>
+                    <span>Welcome Admin</span>
+                </div><!-- /page-title -->
+            </div><!-- /main-header -->
+
+            <div class="grey-container shortcut-wrapper">
+                <a href="#" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </span>
+                    <span class="text">Statistic</span>
+                </a>
+                <a href="@Url.Action("Index", "Claim")" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-envelope-o"></i>
+                        @*<span class="shortcut-alert">
+                            5
+                        </span>*@
+                    </span>
+                    <span class="text">Claims</span>
+                </a>
+                <a href="@Url.Action("Index", "Member")" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="text">Members</span>
+                </a>
+                <a href="@Url.Action("Index", "Volunteer")" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="text">Volunteers</span>
+                </a>
+                <a href="@Url.Action("Index", "Refug")" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="text">Refugees</span>
+                </a>
+            </div><!-- /grey-container -->
+            <div class="padding-md">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="panel-stat3 bg-danger">
+                            <h2 class="m-top-none" id="userCount">362</h2>
+                            <h5>Registered users</h5>
+                            @*<i class="fa fa-arrow-circle-o-up fa-lg"></i><span class="m-left-xs">5% Higher than last week</span>*@
+                            <div class="stat-icon">
+                                <i class="fa fa-user fa-3x"></i>
+                            </div>
+                            <div class="refresh-button">
+                                <i class="fa fa-refresh"></i>
+                            </div>
+                            <div class="loading-overlay">
+                                <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+                            </div>
+                        </div>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6 col-md-3">
+                        <div class="panel-stat3 bg-warning">
+                            <h2 class="m-top-none" id="orderCount">593</h2>
+                            <h5>Registered Volunteers</h5>
+                            @*<i class="fa fa-arrow-circle-o-up fa-lg"></i><span class="m-left-xs">3% Higher than last week</span>*@
+                            <div class="stat-icon">
+                                <i class="fa fa-user fa-3x"></i>
+                            </div>
+                            <div class="refresh-button">
+                                <i class="fa fa-refresh"></i>
+                            </div>
+                            <div class="loading-overlay">
+                                <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+                            </div>
+                        </div>
+                    </div><!-- /.col -->
+                </div>
+
+                <div class="row">
+                    <hr>
+                    @RenderBody()
+                    <hr>
+                </div>
+
+
+            </div><!-- /.padding-md -->
+        </div><!-- /main-container -->
+        <!-- Footer
+        ================================================== -->
+        <footer>
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="footer-brand">
+                        <strong class="text-danger">Refugee</strong> Admin
+                    </span>
+                    <p class="no-margin">
+                        &copy; 2017 <strong>Data-Vadors</strong>. ALL Rights Reserved.
+                    </p>
+                </div><!-- /.col -->
+            </div><!-- /.row-->
+        </footer>
+
+    </div><!-- /wrapper -->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Jquery -->
+    @Scripts.Render("~/Assets/Admin/js/jquery-2.1.4.min.js")
+
+    <!-- Bootstrap -->
+    @Scripts.Render("~/Assets/Admin/bootstrap/js/bootstrap.js")
+
+    <!-- Flot -->
+    @Scripts.Render("~/Assets/Admin/js/jquery.flot.min.js")
+
+    <!-- Morris -->
+    @Scripts.Render("~/Assets/Admin/js/rapheal.min.js")
+    @Scripts.Render("~/Assets/Admin/js/morris.min.js")
+
+    <!-- Colorbox -->
+    @Scripts.Render("~/Assets/Admin/js/jquery.colorbox.min.js")
+
+    <!-- Sparkline -->
+    @Scripts.Render("~/Assets/Admin/js/jquery.sparkline.min.js")
+
+    <!-- Pace -->
+    @Scripts.Render("~/Assets/Admin/js/uncompressed/pace.js")
+
+    <!-- Popup Overlay -->
+    <script src=''></script>
+    @Scripts.Render("~/Assets/Admin/js/jquery.popupoverlay.min.js")
+
+    <!-- Slimscroll -->
+    @Scripts.Render("~/Assets/Admin/js/jquery.slimscroll.min.js")
+
+    <!-- Modernizr -->
+    @Scripts.Render("~/Assets/Admin/js/modernizr.min.js")
+
+    <!-- Cookie -->
+    @Scripts.Render("~/Assets/Admin/js/jquery.cook.min.js")
+
+    <!-- Jaiswal -->
+    @Scripts.Render("~/Assets/Admin/js/app/app_dashboard.js")
+    @Scripts.Render("~/Assets/Admin/js/app/app.js")
+
+</body>
+</html>

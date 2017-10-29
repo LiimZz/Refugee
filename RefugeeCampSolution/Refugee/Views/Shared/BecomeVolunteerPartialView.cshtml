@@ -1,0 +1,8 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+}
+else
+{
+    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Register", "Volunteer")'">Become Volunter </button>
+}
