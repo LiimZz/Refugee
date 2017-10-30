@@ -40,7 +40,7 @@ namespace Refugee.Controllers
             PostClaims p = new PostClaims
             {
                 MemberID = User.Identity.GetUserId(),
-                PostID = 3,
+                PostID = 4,
                 DateClaim = DateTime.Now,
                 Description = pc.Description,
                 Objet = pc.Objet,

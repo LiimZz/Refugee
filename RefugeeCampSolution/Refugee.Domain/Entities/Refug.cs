@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,7 @@ namespace Refugee.Domain.Entities
         [Key]
         public int RefugID { get; set; }
         [Required]
+        [JsonIgnore]
         public string AdminID { get; set; }
         [Required]
         [Display(Name = "First Name")]
@@ -28,10 +30,13 @@ namespace Refugee.Domain.Entities
         [Display(Name = "Nationality")]
         public string Nationality { get; set; }
         public CivilStatus Staus { get; set; }
+        [JsonIgnore]
         public int TentID { get; set; }
 
         //prop nav
+        [JsonIgnore]
         public virtual Tent Tent { get; set; }
+        [JsonIgnore]
         public virtual User admin { get; set; }
     }
 }

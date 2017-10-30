@@ -13,23 +13,30 @@ namespace Refugee.Controllers
     public class RefugeeApiController : ApiController
     {
         IRefugService rs = null;
-        RefugeeDbContext rd;
+        public RefugeeApiController()
+        {
+            rs = new RefugService();
+        }
+
         // GET: api/RefugeeApi
         public IEnumerable<Refug> Get()
         {
-            rs = new RefugService();
             return rs.GetAllRefug();
         }
 
         // GET: api/RefugeeApi/5
-        public string Get(int id)
+        public Refug Get(int id)
         {
-            return "value";
+            return rs.GetRefugByID(id);
         }
 
         // POST: api/RefugeeApi
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Refug rf,[FromUri] string adminID )
         {
+            Refug r = new Refug
+            {
+
+            };
         }
 
         // PUT: api/RefugeeApi/5
