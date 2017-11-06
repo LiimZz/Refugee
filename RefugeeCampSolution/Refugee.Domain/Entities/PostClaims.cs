@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,7 +25,9 @@ namespace Refugee.Domain.Entities
         public string Status { get; set; } = "Not Treated yet";
 
         //prop nav
+        [JsonIgnore]
         public virtual User member { get; set; }
+        [JsonIgnore]
         public virtual Post post { get; set; }
     }
 }

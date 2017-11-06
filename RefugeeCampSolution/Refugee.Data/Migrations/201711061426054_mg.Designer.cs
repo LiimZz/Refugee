@@ -13,7 +13,7 @@ namespace Refugee.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201710290147595_mg"; }
+            get { return "201711061426054_mg"; }
         }
         
         string IMigrationMetadata.Source

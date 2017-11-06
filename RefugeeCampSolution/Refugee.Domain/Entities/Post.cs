@@ -14,7 +14,7 @@ namespace Refugee.Domain.Entities
         public int PostID { get; set; }
         public string MemberID { get; set; }
         public DateTime DatePub { get; set; }
-        public string image { get; set; }
+        public string Picture { get; set; }
         public String Content { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }
@@ -22,7 +22,6 @@ namespace Refugee.Domain.Entities
         //prop nav
         public virtual User member { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<User> Members { get; set; }
         public virtual ICollection<PostClaims> PostClms { get; set; }
     }
 }

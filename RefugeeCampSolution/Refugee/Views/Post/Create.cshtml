@@ -1,0 +1,58 @@
+﻿@model Refugee.Models.PostViewModels
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("FileUpload", "Post", FormMethod.Post,
+                                                                new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload Image:</label>
+    <input type="file" name="file" id="file" style="width: 100%;" />
+
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PostViewModels</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+        <div class="form-group">
+            <label>Subject  Title</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Article</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Post" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

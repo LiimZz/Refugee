@@ -200,9 +200,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201710290147595_mg.cs" />
-    <Compile Include="Migrations\201710290147595_mg.Designer.cs">
-      <DependentUpon>201710290147595_mg.cs</DependentUpon>
+    <Compile Include="Migrations\201711061426054_mg.cs" />
+    <Compile Include="Migrations\201711061426054_mg.Designer.cs">
+      <DependentUpon>201711061426054_mg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -236,8 +236,8 @@
     <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710290147595_mg.resx">
-      <DependentUpon>201710290147595_mg.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711061426054_mg.resx">
+      <DependentUpon>201711061426054_mg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

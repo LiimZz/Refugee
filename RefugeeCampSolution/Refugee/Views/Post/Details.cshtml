@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="become">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        @Html.Partial("AffichView", item);
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

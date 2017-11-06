@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Refugee.Models.PostViewModels>
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        @Html.Partial("AffichAll", item);
+    }
+}

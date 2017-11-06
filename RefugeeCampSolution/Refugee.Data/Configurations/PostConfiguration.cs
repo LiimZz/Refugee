@@ -13,7 +13,7 @@ namespace Refugee.Data.Configurations
         public PostConfiguration()
         {
             HasRequired(p => p.member)
-                .WithMany(c => c.Postss)
+                .WithMany(c => c.Posts)
                 .HasForeignKey(p => p.MemberID)
                 .WillCascadeOnDelete(false);
 

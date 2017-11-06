@@ -34,16 +34,9 @@ namespace Refugee.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string recieverEmail, string subject, string message)
         {
-            //try
-            //{
-            //    if (ModelState.IsValid)
-            //    {
-                    //var senderemail = new MailAddress("imen.sahli1706@gmail.com", "RefugeeAdmin");
-                    //var recieveremail = new MailAddress(recieverEmail, "Reciever");
-                    //var password = "123allah*";
                     var senderemail = new MailAddress("slimz.kh92@gmail.com", "RefugeeAdmin");
                     var recieveremail = new MailAddress(recieverEmail, "Reciever");
-                    var password = "limino24091992";
+                    var password = "limino07946896";
 
                 var sub = subject;
                     var body = message;
@@ -66,13 +59,6 @@ namespace Refugee.Controllers
                         smtp.Send(mess);
                     }
                     return View();
-                //}
-            //}
-            //catch (Exception)
-            //{
-            //    ViewBag.Error = "there is an error";
-            //}
-            //return View();
         }
     }
 }

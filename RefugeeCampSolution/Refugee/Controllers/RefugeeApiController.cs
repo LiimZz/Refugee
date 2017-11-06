@@ -24,19 +24,16 @@ namespace Refugee.Controllers
             return rs.GetAllRefug();
         }
 
+        // POST: api/RefugeeApi
+        public void Post([FromBody]Refug rf)
+        {
+            rs.CreateRefug(rf);
+        }
+
         // GET: api/RefugeeApi/5
         public Refug Get(int id)
         {
             return rs.GetRefugByID(id);
-        }
-
-        // POST: api/RefugeeApi
-        public void Post([FromBody]Refug rf,[FromUri] string adminID )
-        {
-            Refug r = new Refug
-            {
-
-            };
         }
 
         // PUT: api/RefugeeApi/5

@@ -190,7 +190,9 @@
   <ItemGroup>
     <Compile Include="ActiveDirectory.cs" />
     <Compile Include="ClaimService.cs" />
+    <Compile Include="CommentService.cs" />
     <Compile Include="IClaimService.cs" />
+    <Compile Include="ICommentService.cs" />
     <Compile Include="IPostService.cs" />
     <Compile Include="IRefugService.cs" />
     <Compile Include="IUserService.cs" />

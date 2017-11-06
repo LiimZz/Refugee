@@ -1,0 +1,35 @@
+﻿@model Refugee.Models.PostViewModels
+    @{
+            ViewBag.Title = "AffichAll";
+    }
+
+<div>
+</div>
+<div>Description: @Model.Content </div><br \ />
+<input type="button" value="lIKE" />
+<div>
+    <i class="fa fa-heart" aria-hidden="true"></i> @Model.Like
+</div> 
+<div> DISLIKES : @Model.Dislike</div>
+
+
+
+<script> if (@Model.PostID ==4){@Html.ActionLink("display comments","Details","Comment")} </script> 
+<div></div>
+
+
+						</div><!-- /panel -->
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="seperator"></div>
+
+								<p>
+									Description: @Model.Content
+								</p>
+								<a class="btn btn-success btn-xs" ><i class="fa fa-thumbs-up"></i> @Model.Like</a>
+								<a class="btn btn-danger btn-xs"><i class="fa fa-thumbs-down"></i> @Model.Dislike</a>
+							</div>
+							<div class="panel-footer">
+<script> if (@Model.PostID == 1){@Html.ActionLink("display comments","Details","Comment")} </script> 
+							</div>
+						</div><!-- /panel -->

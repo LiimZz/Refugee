@@ -15,8 +15,7 @@ namespace Refugee.Services
             {
                 string connectionPrefix = "LDAP://esprit-tn.com";
                 DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix);
-                DirectoryEntry newUser = dirEntry.Children.Add
-                    ("CN=" + username, "user");
+                DirectoryEntry newUser = dirEntry.Children.Add("CN=" + username, "user");
                 newUser.Properties["samAccountName"].Value = username;
                 newUser.CommitChanges();
                 oGUID = newUser.Guid.ToString();
@@ -26,7 +25,7 @@ namespace Refugee.Services
                 dirEntry.Close();
                 newUser.Close();
             }
-            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            catch (System.DirectoryServices.DirectoryServicesCOMException)
             {
                 //DoSomethingwith --> E.Message.ToString();
 

@@ -13,7 +13,7 @@ namespace Refugee.Domain.Entities
         [Key, Column(Order = 0)]
         public DateTime DateComment { get; set; }
         [Key, Column(Order = 1)]
-        public int? PostID { get; set; }
+        public int PostID { get; set; }
         [Key, Column(Order = 2)]
         public string MemberID { get; set; }
         public string Content { get; set; }

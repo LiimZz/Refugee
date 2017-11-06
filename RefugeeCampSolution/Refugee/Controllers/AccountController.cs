@@ -93,12 +93,12 @@ namespace Refugee.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            //ActiveDirectory AD = new ActiveDirectory();
-            //if (!AD.Authenticate(model.UserName, model.Password, "esprit-tn.com"))
-            //{
-            //    ModelState.AddModelError("", "Invalid login attempt.");
-            //    return View(model);
-            //}
+            ActiveDirectory AD = new ActiveDirectory();
+            if (!AD.Authenticate(model.UserName, model.Password, "esprit-tn.com"))
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -200,8 +200,8 @@ namespace Refugee.Controllers
             if (ModelState.IsValid)
             {
                 var user = new User { UserName = model.UserName, Email = model.Email, UserRole = "Member" };
-                //ActiveDirectory AD = new ActiveDirectory();
-                //AD.CreateUserAccount(model.UserName, model.Password);
+                ActiveDirectory AD = new ActiveDirectory();
+                AD.CreateUserAccount(model.UserName, model.Password);
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Refugee.Models.PostViewModels>
+
+@{
+    ViewBag.Title = "DetailAchref";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>DetailAchref</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatePub)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Like)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dislike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Like)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dislike)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "CreateAdmin") |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+
+        </tr>
+    }
+
+</table>

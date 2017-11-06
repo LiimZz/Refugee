@@ -11,5 +11,8 @@ namespace Refugee.Services
     public interface IPostService : IServices<Post>
     {
         Post getPostByID(int id);
+        void updatePub(Post pub);
+        void removeService(int idPub);
+        IEnumerable<Post> GetAllS();
     }
 }

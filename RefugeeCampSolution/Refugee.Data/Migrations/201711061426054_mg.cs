@@ -131,7 +131,7 @@ namespace Refugee.Data.Migrations
                         PostID = c.Int(nullable: false, identity: true),
                         MemberID = c.String(nullable: false, maxLength: 128),
                         DatePub = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        image = c.String(),
+                        Picture = c.String(),
                         Content = c.String(),
                         Like = c.Int(nullable: false),
                         Dislike = c.Int(nullable: false),
@@ -262,19 +262,6 @@ namespace Refugee.Data.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
-            CreateTable(
-                "dbo.PostUsers",
-                c => new
-                    {
-                        Post_PostID = c.Int(nullable: false),
-                        User_Id = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.Post_PostID, t.User_Id })
-                .ForeignKey("dbo.Posts", t => t.Post_PostID, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id, cascadeDelete: true)
-                .Index(t => t.Post_PostID)
-                .Index(t => t.User_Id);
-            
         }
         
         public override void Down()
@@ -290,16 +277,12 @@ namespace Refugee.Data.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.PostClaims", "PostID", "dbo.Posts");
             DropForeignKey("dbo.PostClaims", "MemberID", "dbo.AspNetUsers");
-            DropForeignKey("dbo.PostUsers", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.PostUsers", "Post_PostID", "dbo.Posts");
             DropForeignKey("dbo.Posts", "MemberID", "dbo.AspNetUsers");
             DropForeignKey("dbo.Comments", "PostID", "dbo.Posts");
             DropForeignKey("dbo.Comments", "MemberID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Equipments", "TentID", "dbo.Tents");
             DropForeignKey("dbo.Tents", "CampID", "dbo.Camps");
-            DropIndex("dbo.PostUsers", new[] { "User_Id" });
-            DropIndex("dbo.PostUsers", new[] { "Post_PostID" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -319,7 +302,6 @@ namespace Refugee.Data.Migrations
             DropIndex("dbo.Refugs", new[] { "AdminID" });
             DropIndex("dbo.Equipments", new[] { "TentID" });
             DropIndex("dbo.Tents", new[] { "CampID" });
-            DropTable("dbo.PostUsers");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.Events");

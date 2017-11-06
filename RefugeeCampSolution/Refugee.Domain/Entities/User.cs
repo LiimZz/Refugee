@@ -38,7 +38,6 @@ namespace Refugee.Domain.Entities
         public virtual ICollection<Refug> Refugs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
-        public virtual ICollection<Post> Postss { get; set; }
         public virtual ICollection<Order> orders { get; set; }
         public virtual ICollection<Participation> Participations { get; set; }
         public virtual ICollection<PostClaims> PostClms { get; set; }

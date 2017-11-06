@@ -150,7 +150,6 @@ namespace Refugee.Controllers
             //                Name = u.UserName,
             //                Role = r.Name,
             //            };
-            //ViewBag.data = users;
             var u = us.getUserByRoleVolunteer();
             return View(u);
         }

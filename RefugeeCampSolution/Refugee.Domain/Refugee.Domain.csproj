@@ -194,12 +194,10 @@
     <Compile Include="Entities\ClaimObject.cs" />
     <Compile Include="Entities\ClaimStatus.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\CommentClaim.cs" />
     <Compile Include="Entities\Conversation.cs" />
     <Compile Include="Entities\Equipment.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Localisation.cs" />
-    <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Participation.cs" />
     <Compile Include="Entities\Post.cs" />
@@ -209,7 +207,6 @@
     <Compile Include="Entities\Tent.cs" />
     <Compile Include="Entities\TypeEquipment.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

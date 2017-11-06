@@ -1,13 +1,24 @@
-﻿using System;
+﻿using Refugee.Domain.Entities;
+using Refugee.Models;
+using Refugee.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Refugee.Controllers
 {
     public class PostController : Controller
     {
+        IPostService ps;
+
+        public PostController()
+        {
+            ps = new PostService();
+        }
+
         // GET: Post
         public ActionResult Index()
         {
@@ -17,7 +28,29 @@ namespace Refugee.Controllers
         // GET: Post/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var c = ps.GetAllS();
+            List<PostViewModels> Pvm = new List<PostViewModels>();
+            foreach (var item in c)
+            {
+                // User.Identity.GetUserId()
+                if (item.MemberID == "1")
+                {
+                    Pvm.Add(
+                     new PostViewModels
+                     {
+                         PostID = item.PostID,
+                         Content = item.Content,
+                         DatePub = item.DatePub,
+                         Picture = item.Picture,
+                         Like = item.Like,
+                         Dislike = item.Dislike,
+
+                     });
+                }
+            }
+            return View(Pvm);
+            int i = 0;
+            Button b = new Button();
         }
 
         // GET: Post/Create
@@ -28,62 +61,129 @@ namespace Refugee.Controllers
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PostViewModels pmm, HttpPostedFileBase file)
         {
-            try
+            Post p = new Post
             {
-                // TODO: Add insert logic here
+                Content = pmm.Content,
+                DatePub = DateTime.Now,
+                Dislike = 0,
+                Like = 0,
+                Picture = pmm.Picture
+            };
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            ps.Add(p);
+            ps.Commit();
+            return RedirectToAction("Details");
         }
 
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Post p = ps.GetById(id);
+
+            var PostModel = new PostViewModels
+            {
+                PostID = p.PostID,
+                Content = p.Content,
+                DatePub = p.DatePub,
+                Dislike = p.Dislike,
+                Like = p.Like,
+                Picture = p.Picture,
+                MemberID = p.MemberID
+            };
+            return View(PostModel);
         }
 
         // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PostViewModels PostModel)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Post an = ps.GetById(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            an.Content = PostModel.Content;
+            an.DatePub = DateTime.Now;
+            an.Dislike = 0;
+            an.Picture = PostModel.Picture;
+            an.Like = 0;
+            an.MemberID = "6";
+            ps.Update(an);
+            ps.Commit();
+
+            return RedirectToAction("Details");
         }
 
         // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Post c = ps.getPostByID(id);
+            ps.removeService(id);
+            ps.Commit();
+            return RedirectToAction("Details");
         }
 
-        // POST: Post/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DetailAchref(int? id)
         {
-            try
+            var c = ps.GetAllS();
+            List<PostViewModels> Pvm = new List<PostViewModels>();
+            foreach (var item in c)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                Pvm.Add(
+                    new PostViewModels
+                    {
+                        PostID = item.PostID,
+                        Content = item.Content,
+                        DatePub = item.DatePub,
+                        Picture = item.Picture,
+                        Like = item.Like,
+                        Dislike = item.Dislike,
+                    });
             }
-            catch
-            {
-                return View();
-            }
+            return View(Pvm);
+            int i = 0;
+            Button b = new Button();
         }
+
+        [HttpPost]
+        public ActionResult CreateAdmin(PostViewModels pmm, HttpPostedFileBase file)
+        {
+            Post p = new Post
+            {
+                Content = pmm.Content,
+                DatePub = DateTime.Now,
+                Dislike = 0,
+                Like = 0,
+                Picture = pmm.Picture
+            };
+
+            ps.Add(p);
+            ps.Commit();
+            return RedirectToAction("DetailAchref");
+        }
+
+        public ActionResult DetailAll(int? id)
+        {
+            var c = ps.GetAllS();
+            List<PostViewModels> Pvm = new List<PostViewModels>();
+            foreach (var item in c)
+            {
+                Pvm.Add(
+                    new PostViewModels
+                    {
+                        PostID = item.PostID,
+                        Content = item.Content,
+                        DatePub = item.DatePub,
+                        Picture = item.Picture,
+                        Like = item.Like,
+                        Dislike = item.Dislike,
+
+                    });
+            }
+            return View(Pvm);
+            int i = 0;
+            Button b = new Button();
+        }
+
+
     }
 }
