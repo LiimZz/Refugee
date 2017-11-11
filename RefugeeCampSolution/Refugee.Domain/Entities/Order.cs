@@ -13,7 +13,7 @@ namespace Refugee.Domain.Entities
         [Key, Column(Order = 0)]
         public string MemberID { get; set; }
         [Key, Column(Order = 1)]
-        public int? ProductID { get; set; }
+        public int? ProdID { get; set; }
         [Key, Column(Order = 2)]
         public DateTime PurchaseDate { get; set; }
         public int Qtt { get; set; }

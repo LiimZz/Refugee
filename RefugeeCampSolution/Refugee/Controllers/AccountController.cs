@@ -13,6 +13,11 @@ using Refugee.Domain.Entities;
 using Refugee.Data;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Refugee.Services;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Refugee.Controllers
 {
@@ -93,12 +98,13 @@ namespace Refugee.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            ActiveDirectory AD = new ActiveDirectory();
-            if (!AD.Authenticate(model.UserName, model.Password, "esprit-tn.com"))
-            {
-                ModelState.AddModelError("", "Invalid login attempt.");
-                return View(model);
-            }
+            //ActiveDirectory AD = new ActiveDirectory();
+            //if (!AD.Authenticate(model.UserName, model.Password, "esprit-tn.com"))
+            //{
+            //    ModelState.AddModelError("", "Invalid login attempt.");
+            //    return View(model);
+            //}
+            AccountApiController aac = new AccountApiController();
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -115,14 +121,27 @@ namespace Refugee.Controllers
                     //}
                     if ((UserManager.IsInRole(user.Id, "SPAdmin")))
                     {
-                        return RedirectToAction("Index", "Admin");
+                        user.Token = GenerateToken();
+                        UserManager.Update(user);
+                                              return RedirectToAction("Index", "Admin");
                     }
                     if ((UserManager.IsInRole(user.Id, "Member")))
                     {
+                        user.Token = GenerateToken();
+                        UserManager.Update(user);
+
+                        Response.Cookies["token"].Value = user.Token;
+                        Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
+                  
+
+                        //aac.putCookies(user.Token);
                         return RedirectToAction("Index", "Home");
                     }
                     if ((UserManager.IsInRole(user.Id, "Volunteer")))
                     {
+                        user.Token = GenerateToken();
+                        UserManager.Update(user);
+                     
                         return RedirectToAction("Index", "Home");
                     }
                     return View(model);
@@ -137,6 +156,7 @@ namespace Refugee.Controllers
                     return View(model);
             }
         }
+       
 
         //
         // GET: /Account/VerifyCode
@@ -200,19 +220,14 @@ namespace Refugee.Controllers
             if (ModelState.IsValid)
             {
                 var user = new User { UserName = model.UserName, Email = model.Email, UserRole = "Member" };
-                ActiveDirectory AD = new ActiveDirectory();
-                AD.CreateUserAccount(model.UserName, model.Password);
+                //ActiveDirectory AD = new ActiveDirectory();
+                //AD.CreateUserAccount(model.UserName, model.Password);
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, "Member");
                     //Ends Here
                     //return RedirectToAction("Index", "Users");
@@ -483,6 +498,15 @@ namespace Refugee.Controllers
             }
 
             base.Dispose(disposing);
+        }
+        public string GenerateToken()
+        {
+            string b = Guid.NewGuid().ToString();
+            b = Regex.Replace(b, "/", "");
+
+            return b;
+
+
         }
 
         #region Helpers

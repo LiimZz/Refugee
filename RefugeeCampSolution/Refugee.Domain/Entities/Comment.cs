@@ -20,6 +20,5 @@ namespace Refugee.Domain.Entities
         //Prop nav
         public virtual User member { get; set; }
         public virtual Post post { get; set; }
-        //public virtual ICollection<CommentClaim> CommentClaims { get; set; }
     }
 }

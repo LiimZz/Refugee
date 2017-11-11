@@ -54,7 +54,7 @@ namespace Refugee
                 }
             }
 
-            // creating Creating Manager role    
+            // creating Creating Member role    
             if (!roleManager.RoleExists("Member"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
@@ -62,13 +62,22 @@ namespace Refugee
                 roleManager.Create(role);
             }
 
-            // creating Creating Employee role    
+            // creating Creating Volunteer role    
             if (!roleManager.RoleExists("Volunteer"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Volunteer";
                 roleManager.Create(role);
             }
+
+            // creating Creating CampManager role    
+            if (!roleManager.RoleExists("CampManager"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "CampManager";
+                roleManager.Create(role);
+            }
+
         }
     }
 }

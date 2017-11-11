@@ -13,5 +13,7 @@ namespace Refugee.Services
         User getUserByID(string id);
         User getUserByRoleVolunteer();
         User getUserByRoleMember();
+        User getUserByToken(string t);
+        void updateUser(User u);
     }
 }

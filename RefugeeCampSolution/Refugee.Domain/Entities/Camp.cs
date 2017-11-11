@@ -16,5 +16,6 @@ namespace Refugee.Domain.Entities
         public int Size { get; set; }
         //prop nav
         public virtual ICollection<Tent> Tents { get; set; }
+        public virtual ICollection<Donations> Donations { get; set; }
     }
 }

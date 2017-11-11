@@ -225,7 +225,5 @@ C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\bin\Debug\
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\obj\Debug\Refugee.Data.csprojResolveAssemblyReference.cache
-C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\obj\Debug\Refugee.Data.Migrations.mg.resources
-C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\obj\Debug\Refugee.Data.csproj.GenerateResource.Cache
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\obj\Debug\Refugee.Data.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Data\obj\Debug\Refugee.Data.pdb

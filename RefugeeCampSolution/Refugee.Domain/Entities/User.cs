@@ -34,6 +34,7 @@ namespace Refugee.Domain.Entities
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        public string Token { get; set; }
 
         public virtual ICollection<Refug> Refugs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
@@ -41,6 +42,9 @@ namespace Refugee.Domain.Entities
         public virtual ICollection<Order> orders { get; set; }
         public virtual ICollection<Participation> Participations { get; set; }
         public virtual ICollection<PostClaims> PostClms { get; set; }
-
+        public virtual ICollection<Donations> Donations { get; set; }
+        public virtual ICollection<Gift> Gifts { get; set; }
+        public virtual ICollection<Adoption> Adoption { get; set; }
+        public virtual ICollection<Courses> Courses { get; set; }
     }
 }

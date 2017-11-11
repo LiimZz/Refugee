@@ -54,6 +54,8 @@ namespace Refugee.Controllers
                 FirstName = rf.FirstName,
                 MiddleName = rf.MiddleName,
                 LastName = rf.LastName,
+                Skills = rf.Skills,
+                HealthStatus = rf.HealthStatus,
                 Age = rf.Age,
                 Nationality = rf.Nationality,
                 Staus = rf.Staus,
@@ -93,6 +95,8 @@ namespace Refugee.Controllers
                 r.MiddleName = rf.MiddleName;
                 r.LastName = rf.LastName;
                 r.Nationality = rf.Nationality;
+                r.Skills = rf.Skills;
+                r.HealthStatus = rf.HealthStatus;
                 r.Age = rf.Age;
                 r.Staus = rf.Staus;
                 r.TentID = 1;

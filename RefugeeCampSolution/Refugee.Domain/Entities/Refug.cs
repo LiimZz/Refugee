@@ -33,10 +33,18 @@ namespace Refugee.Domain.Entities
         [JsonIgnore]
         public int TentID { get; set; }
 
+        //jee needs
+        public string Skills { get; set; }
+        public string HealthStatus { get; set; }
+
         //prop nav
         [JsonIgnore]
         public virtual Tent Tent { get; set; }
         [JsonIgnore]
         public virtual User admin { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Consultation> Consultations { get; set; }
+        public virtual ICollection<Adoption> Adoptions { get; set; }
+
     }
 }

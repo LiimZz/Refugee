@@ -187,23 +187,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Admin.cs" />
+    <Compile Include="Entities\Adoption.cs" />
     <Compile Include="Entities\AgeStruct.cs" />
     <Compile Include="Entities\Camp.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\CivilStatus.cs" />
     <Compile Include="Entities\ClaimObject.cs" />
     <Compile Include="Entities\ClaimStatus.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Conversation.cs" />
+    <Compile Include="Entities\Consultation.cs" />
+    <Compile Include="Entities\Courses.cs" />
+    <Compile Include="Entities\Donations.cs" />
     <Compile Include="Entities\Equipment.cs" />
     <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\Gift.cs" />
+    <Compile Include="Entities\JobOffer.cs" />
     <Compile Include="Entities\Localisation.cs" />
+    <Compile Include="Entities\MedecinDisponibilite.cs" />
+    <Compile Include="Entities\MedicalCare.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Participation.cs" />
+    <Compile Include="Entities\PartnerDocs.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\PostClaims.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Refug.cs" />
+    <Compile Include="Entities\Partner.cs" />
     <Compile Include="Entities\Tent.cs" />
     <Compile Include="Entities\TypeEquipment.cs" />
     <Compile Include="Entities\User.cs" />

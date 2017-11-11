@@ -168,8 +168,8 @@ namespace Refugee.Controllers
             if (ModelState.IsValid)
             {
                 var user = new User { UserName = model.UserName, Email = model.Email, UserRole = "Volunteer" };
-                ActiveDirectory AD = new ActiveDirectory();
-                AD.CreateUserAccount(model.UserName, model.Password);
+                //ActiveDirectory AD = new ActiveDirectory();
+                //AD.CreateUserAccount(model.UserName, model.Password);
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

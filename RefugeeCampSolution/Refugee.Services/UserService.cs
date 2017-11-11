@@ -38,5 +38,16 @@ namespace Refugee.Services
         {
             return myUnit.getRepository<User>().Get(c => c.UserRole.Equals("Volunteer"));
         }
+
+        public User getUserByToken(string t)
+        {
+            return myUnit.getRepository<User>().Get(c => c.Token.Equals(t));
+        }
+
+        public void updateUser(User u)
+        {
+            myUnit.getRepository<User>().Update(u);
+            myUnit.Commit();
+        }
     }
 }
