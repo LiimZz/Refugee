@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Refugee.Domain.Entities
 {
     public class Donations
     {
+        [Key]
         public int DonationID { get; set; }
         public string MemberID { get; set; }
         public int? CampID { get; set; }

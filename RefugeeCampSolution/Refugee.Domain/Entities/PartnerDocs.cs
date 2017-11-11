@@ -9,6 +9,7 @@ namespace Refugee.Domain.Entities
 {
     public class PartnerDocs
     {
+        [Key]
         public int DocumentID { get; set; }
         [Required]
         [DataType(DataType.Upload)]

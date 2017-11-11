@@ -26,5 +26,6 @@ namespace Refugee.Domain.Entities
 
         //prop nav
         public virtual ICollection<Consultation> Consultations { get; set; }
+        public virtual ICollection<MedecinDisponibilite> MedecinDispo { get; set; }
     }
 }
