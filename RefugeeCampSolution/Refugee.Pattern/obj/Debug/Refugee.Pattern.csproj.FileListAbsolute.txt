@@ -152,10 +152,10 @@ D:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Deb
 D:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\obj\Debug\Refugee.Pattern.csprojResolveAssemblyReference.cache
 D:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\obj\Debug\Refugee.Pattern.dll
 D:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\obj\Debug\Refugee.Pattern.pdb
-C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\EntityFramework.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\Refugee.Pattern.dll.config
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\Refugee.Pattern.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\Refugee.Pattern.pdb
+C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\EntityFramework.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\Facebook.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Pattern\bin\Debug\Microsoft.AspNet.Facebook.dll

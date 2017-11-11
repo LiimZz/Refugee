@@ -12,9 +12,9 @@ namespace Refugee.Data.Configurations
     {
         public MedecinDisponibiliteConfiguration()
         {
-            HasRequired(p => p.MedicalCare)
+            HasRequired(p => p.medecin)
                .WithMany(c => c.MedecinDispo)
-               .HasForeignKey(p => p.MedicalCareID)
+               .HasForeignKey(p => p.MedecinID)
                .WillCascadeOnDelete(false);
         }
     }

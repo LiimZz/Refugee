@@ -212,5 +212,6 @@ C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\bin\Debu
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\bin\Debug\System.Web.WebPages.xml
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\obj\Debug\Refugee.Domain.csprojResolveAssemblyReference.cache
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\obj\Debug\Refugee.Domain.dll
 C:\Users\LiimZz\Source\Repos\Refugee\RefugeeCampSolution\Refugee.Domain\obj\Debug\Refugee.Domain.pdb

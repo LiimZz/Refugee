@@ -13,8 +13,8 @@ namespace Refugee.Domain.Entities
         public int DispoID { get; set; }
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
-        public int MedicalCareID { get; set; }
+        public int MedecinID { get; set; }
         //nav prop
-        public virtual MedicalCare MedicalCare { get; set; }
+        public virtual MedicalCare medecin { get; set; }
     }
 }
