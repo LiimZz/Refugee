@@ -17,6 +17,7 @@ namespace Refugee.Domain.Entities
         public DateTime DateDonation { get; set; }
         public string TypeDonation { get; set; }
         public double Amount { get; set; }
+
         //prop nav
         //[ForeignKey("Id")]
         public virtual User user { get; set; }

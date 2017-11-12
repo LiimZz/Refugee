@@ -20,7 +20,6 @@ namespace Refugee.Domain.Entities
             return userIdentity;
         }
 
-
         [Display(Name = "User Role")]
         public string UserRole { get; set; }
 
@@ -42,9 +41,12 @@ namespace Refugee.Domain.Entities
         public virtual ICollection<Order> orders { get; set; }
         public virtual ICollection<Participation> Participations { get; set; }
         public virtual ICollection<PostClaims> PostClms { get; set; }
+
+        //jee needs
         public virtual ICollection<Donations> Donations { get; set; }
         public virtual ICollection<Gift> Gifts { get; set; }
         public virtual ICollection<Adoption> Adoption { get; set; }
         public virtual ICollection<Courses> Courses { get; set; }
+        public virtual ICollection<Partner> Partners { get; set; }
     }
 }

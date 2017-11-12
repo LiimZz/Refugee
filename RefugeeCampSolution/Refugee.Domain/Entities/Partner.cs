@@ -13,6 +13,9 @@ namespace Refugee.Domain.Entities
         public int PartnerID { get; set; }
         public string Name { get; set; }
         public string Specialty { get; set; }
+        public string AdminID { get; set; }
+        public virtual User Admin { get; set; }
         public virtual ICollection<PartnerDocs> PartnerDocs { get; set; }
+        public virtual ICollection<JobOffer> JobOffers { get; set; }
     }
 }

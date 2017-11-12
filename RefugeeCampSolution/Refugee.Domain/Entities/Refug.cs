@@ -44,7 +44,9 @@ namespace Refugee.Domain.Entities
         public virtual User admin { get; set; }
         [JsonIgnore]
         public virtual ICollection<Consultation> Consultations { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Adoption> Adoptions { get; set; }
-
+        [JsonIgnore]
+        public virtual ICollection<JobOffer> JobOffers { get; set; }
     }
 }
