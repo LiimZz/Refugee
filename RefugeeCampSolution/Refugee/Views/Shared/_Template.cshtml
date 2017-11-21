@@ -104,7 +104,6 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="dropdown">
                                     <li>@Html.ActionLink("Posts", "Index", "Post")</li>
                                         @*<div class="dropdown-menu">
                                             <div class="dropdown-inner">
@@ -115,7 +114,6 @@
                                                 </ul>
                                             </div>
                                         </div>*@
-                                    </li>
                                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                 </ul>
                             </div>
@@ -125,7 +123,7 @@
                 </div>
                 <div class="col-sm-4 col-md-4 col-xs-12">
                     <div class="button-login pull-right">
-                        <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Index", "Donation")'">Donate Now <i class="icon_like_alt" aria-hidden="true"></i></button>
+                        @*<button type="button" class="btn btn-default btn-lg" onclick="location.href='http://localhost:18080/RefugeeCampSolution-web/layout.jsf'">More Features <i class="icon_like_alt" aria-hidden="true"></i></button>*@
                         @Html.Partial("BecomeVolunteerPartialView")
                     </div>
                 </div>

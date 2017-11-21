@@ -119,30 +119,6 @@
                                 <span class="menu-hover"></span>
                             </a>
                         </li>
-
-                        @*<li class="openable open">
-                            <a href="#">
-                                <span class="menu-icon">
-                                    <i class="fa fa-file-text fa-lg"></i>
-                                </span>
-                                <span class="text">
-                                    Setting
-                                </span>
-                                <span class="menu-hover"></span>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="login.html"><span class="submenu-label">Sign in</span></a></li>
-                                <li><a href="register.html"><span class="submenu-label">Sign up</span></a></li>
-                                <li><a href="profile.html"><span class="submenu-label">Profile</span></a></li>
-                                <li><a href="blog.html"><span class="submenu-label">Blog</span></a></li>
-                                <li><a href="single_post.html"><span class="submenu-label">Single Post</span></a></li>
-                                <li><a href="chat.html"><span class="submenu-label">Chat Room</span></a></li>
-                                <li><a href="movie.html"><span class="submenu-label">Movie Gallery</span></a></li>
-                                <li><a href="contact.html"><span class="submenu-label">Contact</span></a></li>
-                                <li><a href="error404.html"><span class="submenu-label">Error404</span></a></li>
-                                <li><a href="error500.html"><span class="submenu-label">Error500</span></a></li>
-                            </ul>
-                        </li>*@
                         <li>
                             <a href="gallery.html">
                                 <span class="menu-icon">
@@ -162,7 +138,17 @@
                                 <span class="text">
                                     Inbox
                                 </span>
-                                @*<span class="badge badge-danger bounceIn">4</span>*@
+                                <span class="menu-hover"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:18080/RefugeeCampSolution-web/admin.jsf">
+                                <span class="menu-icon">
+                                    <i class="fa fa-cogs fa-lg"></i>
+                                </span>
+                                <span class="text">
+                                    More
+                                </span>
                                 <span class="menu-hover"></span>
                             </a>
                         </li>
@@ -202,7 +188,7 @@
             </div><!-- /main-header -->
 
             <div class="grey-container shortcut-wrapper">
-                <a href="#" class="shortcut-link">
+                <a href="http://localhost:18080/RefugeeCampSolution-web/baw.jsf" class="shortcut-link">
                     <span class="shortcut-icon">
                         <i class="fa fa-bar-chart-o"></i>
                     </span>
@@ -211,9 +197,6 @@
                 <a href="@Url.Action("Index", "Claim")" class="shortcut-link">
                     <span class="shortcut-icon">
                         <i class="fa fa-envelope-o"></i>
-                        @*<span class="shortcut-alert">
-                            5
-                        </span>*@
                     </span>
                     <span class="text">Claims</span>
                 </a>
@@ -229,51 +212,22 @@
                     </span>
                     <span class="text">Refugees</span>
                 </a>
+                <a href="http://localhost:18080/RefugeeCampSolution-web/admin.jsf" class="shortcut-link">
+                    <span class="shortcut-icon">
+                        <i class="fa fa-cogs"></i>
+                    </span>
+                    <span class="text">More</span>
+                </a>
             </div><!-- /grey-container -->
-            <div class="padding-md">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3">
-                        <div class="panel-stat3 bg-danger">
-                            <h2 class="m-top-none" id="userCount">362</h2>
-                            <h5>Registered users</h5>
-                            @*<i class="fa fa-arrow-circle-o-up fa-lg"></i><span class="m-left-xs">5% Higher than last week</span>*@
-                            <div class="stat-icon">
-                                <i class="fa fa-user fa-3x"></i>
-                            </div>
-                            <div class="refresh-button">
-                                <i class="fa fa-refresh"></i>
-                            </div>
-                            <div class="loading-overlay">
-                                <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
-                            </div>
-                        </div>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6 col-md-3">
-                        <div class="panel-stat3 bg-warning">
-                            <h2 class="m-top-none" id="orderCount">593</h2>
-                            <h5>Registered Volunteers</h5>
-                            @*<i class="fa fa-arrow-circle-o-up fa-lg"></i><span class="m-left-xs">3% Higher than last week</span>*@
-                            <div class="stat-icon">
-                                <i class="fa fa-user fa-3x"></i>
-                            </div>
-                            <div class="refresh-button">
-                                <i class="fa fa-refresh"></i>
-                            </div>
-                            <div class="loading-overlay">
-                                <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
-                            </div>
-                        </div>
-                    </div><!-- /.col -->
-                </div>
 
+            <div class="padding-md">
                 <div class="row">
                     <hr>
                     @RenderBody()
                     <hr>
                 </div>
-
-
             </div><!-- /.padding-md -->
+
         </div><!-- /main-container -->
         <!-- Footer
         ================================================== -->

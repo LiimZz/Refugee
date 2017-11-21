@@ -27,12 +27,14 @@ namespace Refugee.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         RefugeeDbContext ctx;
+        //AccountApiController aac;
         IUserService us;
 
         public AccountController()
         {
             ctx = new RefugeeDbContext();
             us = new UserService();
+            //aac = new AccountApiController();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -104,7 +106,6 @@ namespace Refugee.Controllers
             //    ModelState.AddModelError("", "Invalid login attempt.");
             //    return View(model);
             //}
-            AccountApiController aac = new AccountApiController();
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -123,7 +124,11 @@ namespace Refugee.Controllers
                     {
                         user.Token = GenerateToken();
                         UserManager.Update(user);
-                                              return RedirectToAction("Index", "Admin");
+                        //us.updateUser(user);
+
+                        Response.Cookies["token"].Value = user.Token;
+                        Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
+                        return RedirectToAction("Index", "Admin");
                     }
                     if ((UserManager.IsInRole(user.Id, "Member")))
                     {
@@ -132,16 +137,15 @@ namespace Refugee.Controllers
 
                         Response.Cookies["token"].Value = user.Token;
                         Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
-                  
-
-                        //aac.putCookies(user.Token);
                         return RedirectToAction("Index", "Home");
                     }
                     if ((UserManager.IsInRole(user.Id, "Volunteer")))
                     {
                         user.Token = GenerateToken();
                         UserManager.Update(user);
-                     
+
+                        Response.Cookies["token"].Value = user.Token;
+                        Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
                         return RedirectToAction("Index", "Home");
                     }
                     return View(model);
@@ -467,7 +471,28 @@ namespace Refugee.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
+        { 
+            string connectedUser = User.Identity.GetUserId();
+            User user = us.getUserByID(connectedUser);
+            user.Token = null;
+            us.updateUser(user);
+
+            Response.Cookies["token"].Value = user.Token;
+            Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult LogOffs()
         {
+            string connectedUser = User.Identity.GetUserId();
+            User user = us.getUserByID(connectedUser);
+            user.Token = null;
+            us.updateUser(user);
+
+            Response.Cookies["token"].Value = user.Token;
+            Response.Cookies["token"].Expires = DateTime.Now.AddDays(1);
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
@@ -499,14 +524,13 @@ namespace Refugee.Controllers
 
             base.Dispose(disposing);
         }
+
         public string GenerateToken()
         {
-            string b = Guid.NewGuid().ToString();
-            b = Regex.Replace(b, "/", "");
+            string t = Guid.NewGuid().ToString();
+            t = Regex.Replace(t, "/", "");
 
-            return b;
-
-
+            return t;
         }
 
         #region Helpers

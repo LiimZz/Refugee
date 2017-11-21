@@ -29,7 +29,7 @@ namespace Refugee.Domain.Entities
         [Required]
         [Display(Name = "Nationality")]
         public string Nationality { get; set; }
-        public CivilStatus Staus { get; set; }
+        public CivilStatus Status { get; set; }
         [JsonIgnore]
         public int TentID { get; set; }
 

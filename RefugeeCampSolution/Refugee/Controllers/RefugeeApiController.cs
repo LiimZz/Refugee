@@ -20,27 +20,22 @@ namespace Refugee.Controllers
             rs = new RefugService();
         }
     
+        //public HttpResponseMessage Get()
+        //{
+        //    var response = Request.CreateResponse(HttpStatusCode.OK, new List<Refug>());
 
-        // GET: api/RefugeeApi
-        public HttpResponseMessage Get()
-        {
-            var response = Request.CreateResponse(HttpStatusCode.OK, new List<Refug>());
+        //    // Set headers for paging
+        //    CookieHeaderValue hc = new CookieHeaderValue("bouda","bader");
+        //    hc.Expires = DateTimeOffset.Now.AddDays(1);
+        //    hc.Domain = Request.RequestUri.Host;
+        //    hc.Path = "/";
 
-            // Set headers for paging
-            CookieHeaderValue hc = new CookieHeaderValue("bouda","bader");
-            hc.Expires = DateTimeOffset.Now.AddDays(1);
-            hc.Domain = Request.RequestUri.Host;
-            hc.Path = "/";
-
-            response.Headers.Add("token","bouda");
-            response.Headers.AddCookies(new CookieHeaderValue[] { hc });
+        //    response.Headers.Add("token","bouda");
+        //    response.Headers.AddCookies(new CookieHeaderValue[] { hc });
           
-            
-            // Return the response
-            return response;
-        }
-
-        
+        //    // Return the response
+        //    return response;
+        //}
 
         // POST: api/RefugeeApi
         public void Post([FromBody]Refug rf)
@@ -54,14 +49,5 @@ namespace Refugee.Controllers
             return rs.GetRefugByID(id);
         }
 
-        // PUT: api/RefugeeApi/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/RefugeeApi/5
-        public void Delete(int id)
-        {
-        }
     }
 }

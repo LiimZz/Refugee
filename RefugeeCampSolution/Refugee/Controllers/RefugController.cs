@@ -58,7 +58,7 @@ namespace Refugee.Controllers
                 HealthStatus = rf.HealthStatus,
                 Age = rf.Age,
                 Nationality = rf.Nationality,
-                Staus = rf.Staus,
+                Status = rf.Status,
                 TentID = 1
             };
 
@@ -98,7 +98,7 @@ namespace Refugee.Controllers
                 r.Skills = rf.Skills;
                 r.HealthStatus = rf.HealthStatus;
                 r.Age = rf.Age;
-                r.Staus = rf.Staus;
+                r.Status = rf.Status;
                 r.TentID = 1;
 
                 rs.UpdateRefug(r);
