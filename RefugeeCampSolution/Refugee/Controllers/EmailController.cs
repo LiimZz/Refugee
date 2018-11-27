@@ -36,7 +36,7 @@ namespace Refugee.Controllers
         {
                     var senderemail = new MailAddress("slimz.kh92@gmail.com", "RefugeeAdmin");
                     var recieveremail = new MailAddress(recieverEmail, "Reciever");
-                    var password = "limino07946896";
+                    var password = "***************";
 
                 var sub = subject;
                     var body = message;
